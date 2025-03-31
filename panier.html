@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rêves de Loulous - Panier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f2e1e6;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #8a5a6d;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #8a5a6d;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cart-items {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .cart-items ul {
+            list-style: none;
+        }
+        .cart-items li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f2e1e6;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        .cart-actions button {
+            background-color: #8a5a6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cart-actions button:hover {
+            background-color: #6d4655;
+        }
+        footer {
+            background-color: #f2e1e6;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            section {
+                padding: 20px;
+            }
+            .cart-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rêves de Loulous</h1>
+    </header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="creations.html">Mes Créations</a>
+        <a href="panier.html">Panier</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section>
+        <h2>Votre Panier</h2>
+        <div class="cart-items">
+            <ul id="cart-items"></ul>
+        </div>
+        <div class="cart-total">
+            <p>Total : <span id="cart-total">0</span>€</p>
+        </div>
+        <div class="cart-actions">
+            <button onclick="clearCart()">Vider le panier</button>
+            <!-- Bouton placeholder pour un futur paiement -->
+            <button onclick="alert('Fonctionnalité de paiement à venir !')">Passer commande</button>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
+    </footer>
+    <script>
+        // Charger le panier depuis localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = JSON.parse(localStorage.getItem('total')) || 0;
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.price}€`;
+                cartItems.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = total;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('total', JSON.stringify(total));
+        }
+
+        function clearCart() {
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+
+        // Afficher le panier au chargement de la page
+        updateCart();
+    </script>
+</body>
+</html>
