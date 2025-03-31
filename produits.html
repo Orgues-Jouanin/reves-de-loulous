@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rêves de Loulous - Produits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f2e1e6;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #8a5a6d;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #8a5a6d;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery, .shop {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+            border-radius: 5px;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .item button {
+            background-color: #8a5a6d;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f2e1e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        footer {
+            background-color: #f2e1e6;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Rêves de Loulous</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Galerie -->
+    <section id="galerie" class="gallery">
+        <h2>Mes créations</h2>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://via.placeholder.com/250" alt="Coussin brodé personnalisé vert 1" class="active">
+                <img src="https://via.placeholder.com/250" alt="Coussin brodé personnalisé vert 2">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Coussin brodé personnalisé vert - Un coussin unique avec broderie personnalisée, parfait pour un cadeau ou une déco spéciale.</p>
+        </div>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-1.jpg" alt="Boucles d’oreilles dorées cœur 1" class="active">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-2.jpg" alt="Boucles d’oreilles dorées cœur 2">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-3.jpg" alt="Boucles d’oreilles dorées cœur 3">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-4.jpg" alt="Boucles d’oreilles dorées cœur 4">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-5.jpg" alt="Boucles d’oreilles dorées cœur 5">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-6.jpg" alt="Boucles d’oreilles dorées cœur 6">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Boucles d’oreilles dorées pendentif cœur - Élégantes et légères, avec un joli cœur doré.</p>
+        </div>
+    </section>
+
+    <!-- Boutique -->
+    <section id="boutique" class="shop">
+        <h2>Boutique</h2>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://via.placeholder.com/250" alt="Coussin brodé personnalisé vert 1" class="active">
+                <img src="https://via.placeholder.com/250" alt="Coussin brodé personnalisé vert 2">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Coussin brodé personnalisé vert - 35€</p>
+            <button onclick="addToCart('Coussin brodé personnalisé vert', 35)">Ajouter au panier</button>
+        </div>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-1.jpg" alt="Boucles d’oreilles dorées cœur 1" class="active">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-2.jpg" alt="Boucles d’oreilles dorées cœur 2">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-3.jpg" alt="Boucles d’oreilles dorées cœur 3">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-4.jpg" alt="Boucles d’oreilles dorées cœur 4">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-5.jpg" alt="Boucles d’oreilles dorées cœur 5">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/boucles-coeur-6.jpg" alt="Boucles d’oreilles dorées cœur 6">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Boucles d’oreilles dorées pendentif cœur - 15€</p>
+            <button onclick="addToCart('Boucles d’oreilles dorées cœur', 15)">Ajouter au panier</button>
+        </div>
+    </section>
+
+    <!-- Panier -->
+    <div id="cart">
+        <h3>Panier</h3>
+        <p>Total : <span id="cart-total">0</span>€</p>
+        <ul id="cart-items"></ul>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.price}€`;
+                cartItems.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = total;
+        }
+
+        function moveCarousel(btn, direction) {
+            const carousel = btn.parentElement;
+            const images = carousel.querySelectorAll('img');
+            let current = Array.from(images).findIndex(img => img.classList.contains('active'));
+            images[current].classList.remove('active');
+            current = (current + direction + images.length) % images.length;
+            images[current].classList.add('active');
+        }
+    </script>
+</body>
+</html>
