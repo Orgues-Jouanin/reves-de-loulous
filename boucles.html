@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rêves de Loulous - Boucles d’Oreilles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f2e1e6;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #8a5a6d;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #8a5a6d;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .intro {
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .product p {
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #f2e1e6;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rêves de Loulous</h1>
+    </header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="creations.html">Mes Créations</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section>
+        <h2>Boucles d’Oreilles</h2>
+        <div class="intro">
+            <p>Mes boucles d’oreilles sont des petites touches de beauté pour sublimer votre style. Fabriquées à la main avec des matériaux soigneusement choisis, comme le tissu Liberty ou des attaches dorées hypoallergéniques, elles allient légèreté et élégance. Chaque paire raconte une histoire, inspirée par la nature ou les petits bonheurs du quotidien.</p>
+        </div>
+        <div class="products">
+            <a href="boucles-coeur.html" class="product">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Boucles-coeur/boucles-coeur-1.jpg" alt="Boucles d’oreilles dorées cœur">
+                <p>Boucles d’Oreilles Dorées Cœur</p>
+            </a>
+            <!-- Ajoute d'autres boucles ici quand tu auras le contenu -->
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
