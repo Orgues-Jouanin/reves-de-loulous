@@ -40,21 +40,31 @@
         }
         .product-page {
             padding: 40px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
+        }
+        .product-container {
+            flex: 0 0 250px; /* Largeur fixe pour 4 par ligne */
+            max-width: 250px;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         .carousel {
             position: relative;
-            flex: 2;
             overflow: hidden;
         }
         .carousel img {
             width: 100%;
             height: auto;
             display: none;
-            border-radius: 5px;
+            border-radius: 5px 5px 0 0;
         }
         .carousel img.active {
             display: block;
@@ -72,24 +82,23 @@
         .prev { left: 10px; }
         .next { right: 10px; }
         .details {
-            flex: 1;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
         }
         .details h2 {
             color: #8a5a6d;
-            font-size: 1.8em;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
         .details p {
-            margin-bottom: 15px;
+            margin-bottom 🙂10px;
+            font-size: 0.9em;
         }
         .details button {
             background-color: #8a5a6d;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             cursor: pointer;
             border-radius: 5px;
             width: 100%;
@@ -116,8 +125,11 @@
                 margin: 10px 0;
             }
             .product-page {
-                flex-direction: column;
                 padding: 20px;
+            }
+            .product-container {
+                flex: 0 0 100%;
+                max-width: 100%;
             }
         }
     </style>
@@ -129,23 +141,25 @@
     <nav>
         <a href="index.html">Accueil</a>
         <a href="creations.html">Mes Créations</a>
-	<a href="panier.html">Panier</a>
+        <a href="panier.html">Panier</a>
         <a href="#contact">Contact</a>
     </nav>
     <section class="product-page">
-        <div class="carousel" data-carousel>
-            <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-1.jpg" alt="Coussin brodé personnalisé vert 1" class="active">
-            <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-2.jpg" alt="Coussin brodé personnalisé vert 2">
-            <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-3.jpg" alt="Coussin brodé personnalisé vert 3">
-            <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-4.jpg" alt="Coussin brodé personnalisé vert 4">
-            <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
-            <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
-        </div>
-        <div class="details">
-            <h2>Coussin Brodé Personnalisé Vert</h2>
-            <p><strong>Prix :</strong> 35€</p>
-            <p>Un coussin unique en coton doux, brodé à la main avec le motif ou le texte de votre choix. Parfait pour offrir ou décorer votre intérieur avec une touche personnelle.</p>
-            <button onclick="addToCart('Coussin Brodé Personnalisé Vert', 35)">Ajouter au panier</button>
+        <div class="product-container">
+            <div class="carousel" data-carousel>
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-1.jpg" alt="Coussin brodé personnalisé vert 1" class="active">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-2.jpg" alt="Coussin brodé personnalisé vert 2">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-3.jpg" alt="Coussin brodé personnalisé vert 3">
+                <img src="https://raw.githubusercontent.com/Orgues-Jouanin/reves-de-loulous/main/images/Coussin%20Brigitte/coussin-brigitte-4.jpg" alt="Coussin brodé personnalisé vert 4">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <div class="details">
+                <h2>Coussin Brodé Personnalisé Vert</h2>
+                <p><strong>Prix :</strong> 35€</p>
+                <p>Un coussin unique en coton doux, brodé à la main avec le motif ou texte de votre choix.</p>
+                <button onclick="addToCart('Coussin Brodé Personnalisé Vert', 35)">Ajouter au panier</button>
+            </div>
         </div>
     </section>
     <div id="cart">
@@ -157,8 +171,8 @@
         <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
     </footer>
     <script>
-        let cart = [];
-        let total = 0;
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = JSON.parse(localStorage.getItem('total')) || 0;
 
         function addToCart(itemName, price) {
             cart.push({ name: itemName, price: price });
@@ -175,6 +189,8 @@
                 cartItems.appendChild(li);
             });
             document.getElementById('cart-total').textContent = total;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('total', JSON.stringify(total));
         }
 
         function moveCarousel(btn, direction) {
@@ -185,6 +201,8 @@
             current = (current + direction + images.length) % images.length;
             images[current].classList.add('active');
         }
+
+        updateCart();
     </script>
 </body>
 </html>
