@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rêves de Loulous - Couture & Bijoux Artisanaux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f2e1e6;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #8a5a6d;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #8a5a6d;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero {
+            text-align: center;
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            padding: 60px;
+        }
+        .gallery, .shop {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+            border-radius: 5px;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .item button {
+            background-color: #8a5a6d;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        #cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f2e1e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        footer {
+            background-color: #f2e1e6;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .hero { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Rêves de Loulous</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#a-propos">À propos</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#boutique">Boutique</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Page d'accueil -->
+    <section id="accueil" class="hero">
+        <h2>Bienvenue chez Rêves de Loulous</h2>
+        <p>Couture artisanale et bijoux faits main avec cœur</p>
+    </section>
+
+    <!-- À propos -->
+    <section id="a-propos">
+        <h2>À propos de moi</h2>
+        <p>Je m’appelle Marie-Anne, passionnée de couture et de création. Depuis plusieurs années, je donne vie à des vêtements uniques pour petits et grands, avec une touche de Liberty et beaucoup d’amour. Mes boucles d’oreilles artisanales complètent cette aventure créative ! Chaque pièce est réalisée à la main, avec soin, pour apporter un peu de douceur dans votre quotidien.</p>
+    </section>
+
+    <!-- Galerie -->
+    <section id="galerie" class="gallery">
+        <h2>Mes créations</h2>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://drive.google.com/uc?export=view&id=INSÈRE_ID_PHOTO_1" alt="Coussin brodé personnalisé vert 1" class="active">
+                <img src="https://drive.google.com/uc?export=view&id=INSÈRE_ID_PHOTO_2" alt="Coussin brodé personnalisé vert 2">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Coussin brodé personnalisé vert - Un coussin unique avec broderie personnalisée, parfait pour un cadeau ou une déco spéciale.</p>
+        </div>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://drive.google.com/uc?export=view&id=18OQxUgWbf-cTq9eQculzfHMqcVpo-KYd" alt="Boucles d’oreilles dorées cœur 1" class="active">
+                <img src="https://drive.google.com/uc?export=view&id=1oz5-2EflW_u06FFdGP3g5VXnVXappCGY" alt="Boucles d’oreilles dorées cœur 2">
+                <img src="https://drive.google.com/uc?export=view&id=17OZFBNimUDXkhGFc0JkLmo4DLIqm-nEI" alt="Boucles d’oreilles dorées cœur 3">
+                <img src="https://drive.google.com/uc?export=view&id=1lM2TcScZwcf2xH8JOcsJ5g0qcw4Azr1g" alt="Boucles d’oreilles dorées cœur 4">
+                <img src="https://drive.google.com/uc?export=view&id=1adPXnZYJZgdIBzM4GAK50f3GYVJ6T4sy" alt="Boucles d’oreilles dorées cœur 5">
+                <img src="https://drive.google.com/uc?export=view&id=1uhzkRicS48p1dUyB_m5TJyHzl62l5qNU" alt="Boucles d’oreilles dorées cœur 6">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Boucles d’oreilles dorées pendentif cœur - Élégantes et légères, avec un joli cœur doré.</p>
+        </div>
+    </section>
+
+    <!-- Boutique -->
+    <section id="boutique" class="shop">
+        <h2>Boutique</h2>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://drive.google.com/uc?export=view&id=INSÈRE_ID_PHOTO_1" alt="Coussin brodé personnalisé vert 1" class="active">
+                <img src="https://drive.google.com/uc?export=view&id=INSÈRE_ID_PHOTO_2" alt="Coussin brodé personnalisé vert 2">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Coussin brodé personnalisé vert - 35€</p>
+            <button onclick="addToCart('Coussin brodé personnalisé vert', 35)">Ajouter au panier</button>
+        </div>
+        <div class="item">
+            <div class="carousel" data-carousel>
+                <img src="https://drive.google.com/uc?export=view&id=18OQxUgWbf-cTq9eQculzfHMqcVpo-KYd" alt="Boucles d’oreilles dorées cœur 1" class="active">
+                <img src="https://drive.google.com/uc?export=view&id=1oz5-2EflW_u06FFdGP3g5VXnVXappCGY" alt="Boucles d’oreilles dorées cœur 2">
+                <img src="https://drive.google.com/uc?export=view&id=17OZFBNimUDXkhGFc0JkLmo4DLIqm-nEI" alt="Boucles d’oreilles dorées cœur 3">
+                <img src="https://drive.google.com/uc?export=view&id=1lM2TcScZwcf2xH8JOcsJ5g0qcw4Azr1g" alt="Boucles d’oreilles dorées cœur 4">
+                <img src="https://drive.google.com/uc?export=view&id=1adPXnZYJZgdIBzM4GAK50f3GYVJ6T4sy" alt="Boucles d’oreilles dorées cœur 5">
+                <img src="https://drive.google.com/uc?export=view&id=1uhzkRicS48p1dUyB_m5TJyHzl62l5qNU" alt="Boucles d’oreilles dorées cœur 6">
+                <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(this, 1)">❯</button>
+            </div>
+            <p>Boucles d’oreilles dorées pendentif cœur - 15€</p>
+            <button onclick="addToCart('Boucles d’oreilles dorées cœur', 15)">Ajouter au panier</button>
+        </div>
+    </section>
+
+    <!-- Panier -->
+    <div id="cart">
+        <h3>Panier</h3>
+        <p>Total : <span id="cart-total">0</span>€</p>
+        <ul id="cart-items"></ul>
+    </div>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <p>Pour toute question ou commande personnalisée, envoyez-moi un message !</p>
+        <form>
+            <input type="text" placeholder="Nom" required><br>
+            <input type="email" placeholder="E-mail" required><br>
+            <textarea placeholder="Votre message" required></textarea><br>
+            <button type="submit">Envoyer</button>
+        </form>
+        <p>Suivez-moi sur <a href="https://m.facebook.com/RevesdeLoulous/">Facebook</a> ou sur <a href="https://www.etsy.com/shop/revesdeloulous">Etsy</a>.</p>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Panier
+        let cart = [];
+        let total = 0;
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.price}€`;
+                cartItems.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = total;
+        }
+
+        // Carrousel
+        function moveCarousel(btn, direction) {
+            const carousel = btn.parentElement;
+            const images = carousel.querySelectorAll('img');
+            let current = Array.from(images).findIndex(img => img.classList.contains('active'));
+            images[current].classList.remove('active');
+            current = (current + direction + images.length) % images.length;
+            images[current].classList.add('active');
+        }
+    </script>
+</body>
+</html>
