@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rêves de Loulous - Mes Créations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f2e1e6;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #8a5a6d;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #8a5a6d;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .category h2 {
+            color: #8a5a6d;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .category p {
+            font-size: 1.1em;
+        }
+        footer {
+            background-color: #f2e1e6;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rêves de Loulous</h1>
+    </header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="creations.html">Mes Créations</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section>
+        <h2>Mes Créations</h2>
+        <div class="categories">
+            <a href="boucles.html" class="category">
+                <h2>Boucles d’Oreilles</h2>
+                <p>Découvrez mes bijoux faits main, légers et uniques.</p>
+            </a>
+            <a href="coussins.html" class="category">
+                <h2>Coussins</h2>
+                <p>Des coussins brodés pour une touche cosy et personnelle.</p>
+            </a>
+            <a href="linge-table.html" class="category">
+                <h2>Linge de Table</h2>
+                <p>Serviettes et nappes pour sublimer vos repas.</p>
+            </a>
+            <a href="linge-bain.html" class="category">
+                <h2>Linge de Bain</h2>
+                <p>Serviettes douces et élégantes pour votre salle de bain.</p>
+            </a>
+            <a href="sacs.html" class="category">
+                <h2>Sacs</h2>
+                <p>Des sacs pratiques et stylés pour tous les jours.</p>
+            </a>
+            <a href="divers.html" class="category">
+                <h2>Divers</h2>
+                <p>Petites créations originales pour toutes les occasions.</p>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Rêves de Loulous - Tous droits réservés</p>
+    </footer>
+</body>
+</html>
