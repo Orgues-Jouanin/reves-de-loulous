@@ -51,17 +51,25 @@
         .category {
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 10px;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
+            border: 1px solid #f2e1e6;
         }
         .category:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            background-color: #f2e1e6;
+        }
+        .category a {
+            text-decoration: none; /* Supprime le soulignement */
+            color: inherit; /* Hérite de la couleur du parent */
+            display: block; /* Remplit tout le bouton */
         }
         .category h2 {
             color: #8a5a6d;
-            font-size: 1.5em;
+            font-size: 1.6em;
+            font-weight: bold;
             margin-bottom: 10px;
         }
         .category p {
@@ -96,30 +104,42 @@
     <section>
         <h2>Mes Créations</h2>
         <div class="categories">
-            <a href="boucles.html" class="category">
-                <h2>Boucles d’Oreilles</h2>
-                <p>Découvrez mes bijoux faits main, légers et uniques.</p>
-            </a>
-            <a href="coussins.html" class="category">
-                <h2>Coussins</h2>
-                <p>Des coussins brodés pour une touche cosy et personnelle.</p>
-            </a>
-            <a href="linge-table.html" class="category">
-                <h2>Linge de Table</h2>
-                <p>Serviettes et nappes pour sublimer vos repas.</p>
-            </a>
-            <a href="linge-bain.html" class="category">
-                <h2>Linge de Bain</h2>
-                <p>Serviettes douces et élégantes pour votre salle de bain.</p>
-            </a>
-            <a href="sacs.html" class="category">
-                <h2>Sacs</h2>
-                <p>Des sacs pratiques et stylés pour tous les jours.</p>
-            </a>
-            <a href="divers.html" class="category">
-                <h2>Divers</h2>
-                <p>Petites créations originales pour toutes les occasions.</p>
-            </a>
+            <div class="category">
+                <a href="boucles.html">
+                    <h2>Boucles d’Oreilles</h2>
+                    <p>Découvrez mes bijoux faits main, légers et uniques.</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="coussins.html">
+                    <h2>Coussins</h2>
+                    <p>Des coussins brodés pour une touche cosy et personnelle.</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="linge-table.html">
+                    <h2>Linge de Table</h2>
+                    <p>Serviettes et nappes pour sublimer vos repas.</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="linge-bain.html">
+                    <h2>Linge de Bain</h2>
+                    <p>Serviettes douces et élégantes pour votre salle de bain.</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="sacs.html">
+                    <h2>Sacs</h2>
+                    <p>Des sacs pratiques et stylés pour tous les jours.</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="divers.html">
+                    <h2>Divers</h2>
+                    <p>Petites créations originales pour toutes les occasions.</p>
+                </a>
+            </div>
         </div>
     </section>
     <footer>
